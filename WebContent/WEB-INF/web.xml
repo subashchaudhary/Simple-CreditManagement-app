@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>CreditManagement</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+
+<servlet>
+<servlet-name>User-list</servlet-name>
+<servlet-class>com.subashtech.creditmanagement.UserList</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>User-list</servlet-name>
+<url-pattern>/CreditManagement/UserList</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>transfer-list</servlet-name>
+<servlet-class>com.subashtech.creditmanagement.TransferList</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>transfer-list</servlet-name>
+<url-pattern>/CreditManagement/TransferList</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>credit-transfer</servlet-name>
+<servlet-class>com.subashtech.creditmanagement.TransferCredit</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>credit-transfer</servlet-name>
+<url-pattern>/CreditManagement/TransferCredit</url-pattern>
+</servlet-mapping>
+ 
+
+  
+</web-app>

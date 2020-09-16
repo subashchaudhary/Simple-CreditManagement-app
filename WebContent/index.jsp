@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Credit Management</title>
+<style>
+	*{margin:0;padding:0}
+	body{width:100%;text-align:center;}
+	h1 {
+    padding: 15px;
+    font-size: 35px;
+    /* font-weight: 900; */
+    font-family: monospace;
+	}
+	.header {
+    height: 80px;
+    background: #63cc7e;
+    color: white;
+    text-align: center;
+	}
+	ul.menu {
+    width: 40%;
+    margin: 0 auto;
+    font-family: monospace;
+    text-decoration: none;
+    list-style-type: none;
+    text-align: left;
+	}
+	ul.menu li h2 a {
+    text-decoration: none;
+	}
+	ul.menu li {
+    padding: 20px 0;
+	}
+	ul.menu li :hover {
+	background: #63cc7e;
+    color: white;
+	}
+	table{width:60%;margin:0 auto;text-align:center;}
+  	table th{background:silver;}
+	
+</style>
+</head>
+<body>
+  	<div class='header'><h1> Credit Management </h1></div>
+	</br></br>
+	<ul class="menu">
+		<li><h2><a href="UserList">All Users</a> </h2></li>
+		<li><h2><a href="TransferList">All Transfer Details</a></h2></li>
+		<li><h2><a href="TransferCredit">Transfer Credit</a></h2></li>
+	</ul>
+</body>
+</html>
