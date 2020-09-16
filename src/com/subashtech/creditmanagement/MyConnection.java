@@ -1,4 +1,4 @@
-package com.subashtech.creditmanagement;
+ package com.subashtech.creditmanagement;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -145,8 +145,6 @@ public class MyConnection {
 		//get the current credit from database
 		int current_amount = conn.getCurrentCredit(name);
 		
-		//check if sufficient amount is present
-		if(current_amount < transfer_amount) return -1;
 		//subtract the transfer amount from total amount
 		int remaining_amount = current_amount - transfer_amount;
 		String sql = "update users set current_credit =? where name= ?";
@@ -171,6 +169,7 @@ public class MyConnection {
 		
 		//get the current credit from database
 		int current_amount = conn.getCurrentCredit(name);
+		 
 		int total = current_amount + transfer_amount;
 		String sql = "update users set current_credit = ? where name = ?";
 		try {
@@ -194,8 +193,9 @@ public class MyConnection {
 	//transfer credit
 	public boolean transferCredit(String from, String to, int transfer_amount) {
 		MyConnection conn = new MyConnection();
-		int current_amount = conn.getCurrentCredit(to);
-		
+
+		int current_amount_from = conn.getCurrentCredit(from);
+		if(current_amount_from < transfer_amount) return false;
 		String sql = "insert into transfer(transfer_from, transfer_to, transfer_amount, transfer_progress) values(?,?,?,?)";
 		try {
 			pstmt = (PreparedStatement)con.prepareStatement(sql);
@@ -212,8 +212,8 @@ public class MyConnection {
 				res = pstmt.executeUpdate();
 				if(res == 1) {
 					System.out.println("transfer sucess");
-	 				if(conn.subtractCredit(from, transfer_amount) < 1)return false;
-	 				else return true;
+	 				conn.subtractCredit(from, transfer_amount);
+	 				return true;
 				}
 			}
 			
